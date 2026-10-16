@@ -17,7 +17,6 @@ const BASE_PATH = location.hostname === 'localhost' || location.hostname === '12
   : '/Portfolio/';
 
 let nav = document.createElement('nav');
-document.body.prepend(nav);
 
 for (let p of pages) {
   let url = p.url;
@@ -39,5 +38,50 @@ for (let p of pages) {
   }
 
   nav.append(a);
+}
+
+document.body.prepend(nav);
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+    <label class="color-scheme">
+      Theme:
+      <select>
+        <option value="light dark">Automatic</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
+    </label>`,
+);
+
+let colorSchemeSelect = document.querySelector('.color-scheme select');
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty('color-scheme', colorScheme);
+  colorSchemeSelect.value = colorScheme;
+}
+
+colorSchemeSelect.addEventListener('input', (event) => {
+  console.log('color scheme changed to', event.target.value);
+  localStorage.colorScheme = event.target.value;
+  setColorScheme(event.target.value);
+});
+
+if ('colorScheme' in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+}
+
+let form = document.querySelector('form');
+if (form) {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    let data = new FormData(form);
+    let parameters = [];
+    for (let [name, value] of data) {
+      parameters.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
+    }
+
+    location.href = `${form.action}?${parameters.join('&')}`;
+  });
 }
 
