@@ -5,13 +5,17 @@ export async function fetchJSON(url) {
     const response = await fetch(url);
     console.log(response);
     if (!response.ok) {
-      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      throw new Error(`Failed to fetch data: ${response.statusText}`);
     }
 
     return await response.json();
   } catch (error) {
     console.error('Error fetching or parsing JSON data:', error);
   }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
 }
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
