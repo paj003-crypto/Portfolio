@@ -1,5 +1,56 @@
 console.log('IT’S ALIVE!');
 
+export async function fetchJSON(url) {
+  try {
+    const response = await fetch(url);
+    console.log(response);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!(containerElement instanceof Element)) {
+    console.error('A valid container element is required to render projects.');
+    return;
+  }
+
+  containerElement.replaceChildren();
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    const message = document.createElement('p');
+    message.textContent = 'No projects to display.';
+    containerElement.append(message);
+    return;
+  }
+
+  const validHeadingLevel = /^h[1-6]$/.test(headingLevel) ? headingLevel : 'h2';
+
+  for (const project of projects) {
+    const article = document.createElement('article');
+    const heading = document.createElement(validHeadingLevel);
+    heading.textContent = project.title ?? 'Untitled project';
+    article.append(heading);
+
+    if (project.image) {
+      const image = document.createElement('img');
+      image.src = project.image;
+      image.alt = project.title ?? '';
+      article.append(image);
+    }
+
+    const description = document.createElement('p');
+    description.textContent = project.description ?? '';
+    article.append(description);
+    containerElement.append(article);
+  }
+}
+
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
