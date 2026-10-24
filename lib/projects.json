@@ -1,62 +1,74 @@
 [
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "COMPASS: Utility Customer Mapping and Segmentation",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Built a full-stack web app at Southern California Edison that lets analysts map, profile, and segment utility customers with overlays like fire risk, assistance programs, and solar usage. Designed daily ETL jobs into pre-aggregated warehouse tables, a cached FastAPI service, and a React + TypeScript map interface."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Persuasive vs. Deceptive Data Visualization",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Designed two opposing visualizations from World Bank education spending data across 150+ countries to argue for and against whether governments prioritize university over primary students. Documented each design choice on a deceptive-to-earnest scale and wrote a reflection on where persuasion becomes misleading. Group project with three teammates."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Grocery Food Processing and Price Visualization",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Analyzed 50K+ products from Walmart, Target, and Whole Foods to compare the cost of a day's calories for the most and least processed foods in each aisle. Designed a dot plot benchmarked against the average SNAP benefit, showing that highly processed foods were cheaper in 36 of 42 aisles."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Recipe Rating Prediction and Fairness Audit",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Investigated whether calorie content predicts ratings across 81K+ food.com recipes, handling missing data with permutation tests and running hypothesis tests. Built a tuned scikit-learn classifier (0.966 F1) and confirmed it performed equally across recipe complexity groups."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Algorithmic Fairness Audit in Hiring Models",
+        "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Audited logistic regression hiring models for gender and racial disparities in selection rates, then applied post-processing adjustments to close the gaps without retraining. Presented at the MURALS Undergraduate Research Conference under Professor Julian McAuley."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Dialogue Analysis of 236 Friends Episodes",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Analyzed 8,400+ dialogue lines to study character dynamics, gender balance, and emotional tone across seasons using permutation tests and bootstrapping. Built a bigram model to generate episode titles and modeled IMDb rating against US viewership (r = 0.38)."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Taylor Swift Song Recommender",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Built a content-based recommender across 229 Taylor Swift songs that matches any track from a 763-song dataset to its closest Swift songs using Spotify audio features. Added TF-IDF keyword extraction and interactive widgets for exploring lyrics."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Autonomous Precision-Agriculture System",
+        "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Co-authored research on a system pairing a drone for weed detection with a ground robot for removal. Trained YOLO/CNN models on annotated farm imagery and relayed GPS weed coordinates to a UR5e robotic arm for automated removal."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Predicting Pigeon Voting Behavior",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Surveyed 40 campus pigeons on local policy issues using breadcrumb placement as ballots. Found strong support for more outdoor seating and zero interest in parking reform."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Cloud Shape Classifier",
+        "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Trained a model to label clouds as dragons, ducks, or 'just a blob.' Achieved 100% accuracy on the 'just a blob' category and 3% on everything else."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Optimizing Sock Disappearance Rates",
+        "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Tracked 200 socks across 60 laundry loads to estimate where missing socks go. Results point to a statistically significant portal behind the dryer."
     },
     {
-        "title": "Lorem ipsum dolor sit amet.",
+        "title": "Houseplant Social Network",
+        "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, quod, voluptate. Accusamus, quibusdam. Doloremque, quas. Quisquam, quod, voluptate. Accusamus, quibusdam."
+        "description": "Built a messaging app that lets houseplants send each other passive-aggressive texts about who gets the window spot. The fern has blocked everyone."
     }
 ]
