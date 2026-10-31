@@ -5,14 +5,14 @@ const projects = await fetchJSON('../lib/projects.json');
 const projectsContainer = document.querySelector('.projects');
 const projectsTitle = document.querySelector('.projects-title');
 const arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-const data = [
-	{ value: 1, label: 'apples' },
-	{ value: 2, label: 'oranges' },
-	{ value: 3, label: 'mangos' },
-	{ value: 4, label: 'pears' },
-	{ value: 5, label: 'limes' },
-	{ value: 5, label: 'cherries' },
-];
+const rolledData = d3.rollups(
+	projects,
+	(values) => values.length,
+	(project) => project.year,
+);
+const data = rolledData.map(([year, count]) => {
+	return { value: count, label: year };
+});
 const sliceGenerator = d3.pie().value((d) => d.value);
 const arcData = sliceGenerator(data);
 const arcs = arcData.map((slice) => arcGenerator(slice));
