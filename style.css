@@ -118,6 +118,23 @@ form button {
   overflow: visible;
 }
 
+#projects-pie-plot path {
+  cursor: pointer;
+  transition: 300ms;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+
 .legend {
   display: grid;
   flex: 1 1 16em;
@@ -135,6 +152,7 @@ form button {
   min-width: 0;
   align-items: center;
   gap: 0.4em;
+  cursor: pointer;
 }
 
 .swatch {
