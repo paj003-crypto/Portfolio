@@ -103,6 +103,12 @@ form button {
   font-variant-numeric: oldstyle-nums;
 }
 
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+}
+
 .resume {
   --resume-border-color: oklch(50% 10% 200 / 40%);
   --resume-muted-color: color-mix(in oklch, canvastext 65%, canvas);
