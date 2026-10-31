@@ -96,6 +96,13 @@ form button {
   margin: 0;
 }
 
+.projects .project-year {
+  margin-block: 0.5em 0;
+  color: color-mix(in oklch, canvastext 65%, canvas);
+  font-family: Baskerville, serif;
+  font-variant-numeric: oldstyle-nums;
+}
+
 .resume {
   --resume-border-color: oklch(50% 10% 200 / 40%);
   --resume-muted-color: color-mix(in oklch, canvastext 65%, canvas);

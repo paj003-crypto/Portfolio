@@ -48,9 +48,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       article.append(image);
     }
 
+    const details = document.createElement('div');
+    details.classList.add('project-details');
+
     const description = document.createElement('p');
     description.textContent = project.description ?? '';
-    article.append(description);
+    details.append(description);
+
+    if (project.year !== undefined && project.year !== null) {
+      const year = document.createElement('p');
+      year.classList.add('project-year');
+      year.textContent = String(project.year);
+      details.append(year);
+    }
+
+    article.append(details);
     containerElement.append(article);
   }
 }
@@ -86,7 +98,6 @@ for (let p of pages) {
   if (a.host === location.host && a.pathname === location.pathname) {
     a.classList.add('current');
   }
-
   if (a.host !== location.host) {
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
