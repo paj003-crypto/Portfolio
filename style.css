@@ -109,6 +109,13 @@ form button {
   font-variant-numeric: tabular-nums;
 }
 
+#chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
 .projects h2 {
   margin: 0;
 }
