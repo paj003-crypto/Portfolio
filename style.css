@@ -92,6 +92,23 @@ form button {
   font-variant-numeric: tabular-nums;
 }
 
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9em), 1fr));
+  gap: 0.5em;
+  margin: 0;
+}
+
+.stats dt {
+  font-weight: 700;
+}
+
+.stats dd {
+  margin: 0;
+  font-size: 1.5em;
+  font-variant-numeric: tabular-nums;
+}
+
 .projects h2 {
   margin: 0;
 }
