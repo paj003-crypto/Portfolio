@@ -74,6 +74,7 @@ function $$(selector, context = document) {
 let pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
+  { url: 'meta/', title: 'Meta' },
   { url: 'contact/', title: 'Contact' },
   { url: 'https://github.com/paj003-crypto', title: 'GitHub' },
   { url: 'resume/', title: 'Resume' },
