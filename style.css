@@ -116,6 +116,64 @@ form button {
   overflow: visible;
 }
 
+.gridlines line {
+  stroke: color-mix(in oklch, canvastext 18%, canvas);
+}
+
+.gridlines path,
+.gridlines text {
+  display: none;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.25em 0.75em;
+  margin: 0;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+dl.info dt {
+  color: color-mix(in oklch, canvastext 60%, canvas);
+  font-weight: 600;
+}
+
+dl.info dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 2;
+  top: 1em;
+  left: 1em;
+  padding: 0.75em 1em;
+  border: 1px solid color-mix(in oklch, canvastext 25%, canvas);
+  border-radius: 0.5em;
+  background: color-mix(in oklch, canvas 88%, transparent);
+  color: canvastext;
+  box-shadow: 0 0.5em 1.5em color-mix(in oklch, canvastext 16%, transparent);
+  backdrop-filter: blur(0.75em);
+}
+
+#chart circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: 200ms;
+}
+
+#chart circle:hover {
+  transform: scale(1.5);
+}
+
 .projects h2 {
   margin: 0;
 }
