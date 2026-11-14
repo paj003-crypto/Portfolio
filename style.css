@@ -73,6 +73,16 @@ form button {
   grid-row: span 3;
 }
 
+.projects article > a {
+  display: block;
+}
+
+.projects article img {
+  width: 100%;
+  height: 8rem;
+  object-fit: contain;
+}
+
 #profile-stats dl {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

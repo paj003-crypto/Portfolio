@@ -37,24 +37,27 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   for (const project of projects) {
     const article = document.createElement('article');
+    const projectLink = project.url ? document.createElement('a') : null;
+    if (projectLink) {
+      projectLink.href = project.url;
+      projectLink.target = '_blank';
+      projectLink.rel = 'noopener noreferrer';
+    }
+
     const heading = document.createElement(validHeadingLevel);
     heading.textContent = project.title ?? 'Untitled project';
-    article.append(heading);
+    (projectLink ?? article).append(heading);
 
     if (project.image) {
       const image = document.createElement('img');
-      image.src = project.image;
+      image.src = new URL(project.image, import.meta.url);
       image.alt = project.title ?? '';
-      article.append(image);
+      (projectLink ?? article).append(image);
     }
 
-    if (project.url) {
-      const link = document.createElement('a');
-      link.href = project.url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.textContent = 'View project';
-      article.append(link);
+    if (projectLink) {
+      projectLink.append('View project');
+      article.append(projectLink);
     }
 
     const details = document.createElement('div');
