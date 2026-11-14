@@ -1,5 +1,12 @@
 [
     {
+        "title": "Bike-Watching",
+        "year": 2025,
+        "url": "https://paj003-crypto.github.io/Bike-Watching/",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Built an interactive Mapbox dashboard of Bluebikes traffic in Boston and Cambridge, featuring bike-lane overlays, station markers sized by traffic, a time-of-day slider, and color-coded directional flow for incoming vs. outgoing rides."
+    },
+    {
         "title": "COMPASS: Utility Customer Mapping and Segmentation",
         "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",

@@ -48,6 +48,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       article.append(image);
     }
 
+    if (project.url) {
+      const link = document.createElement('a');
+      link.href = project.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'View project';
+      article.append(link);
+    }
+
     const details = document.createElement('div');
     details.classList.add('project-details');
 
