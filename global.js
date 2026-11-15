@@ -37,27 +37,35 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   for (const project of projects) {
     const article = document.createElement('article');
-    const projectLink = project.url ? document.createElement('a') : null;
-    if (projectLink) {
-      projectLink.href = project.url;
-      projectLink.target = '_blank';
-      projectLink.rel = 'noopener noreferrer';
-    }
-
+    const createProjectLink = () => {
+      const link = document.createElement('a');
+      link.href = project.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      return link;
+    };
     const heading = document.createElement(validHeadingLevel);
-    heading.textContent = project.title ?? 'Untitled project';
-    (projectLink ?? article).append(heading);
+    const title = project.title ?? 'Untitled project';
+    if (project.url) {
+      const titleLink = createProjectLink();
+      titleLink.textContent = title;
+      heading.append(titleLink);
+    } else {
+      heading.textContent = title;
+    }
+    article.append(heading);
 
     if (project.image) {
       const image = document.createElement('img');
       image.src = new URL(project.image, import.meta.url);
-      image.alt = project.title ?? '';
-      (projectLink ?? article).append(image);
-    }
-
-    if (projectLink) {
-      projectLink.append('View project');
-      article.append(projectLink);
+      image.alt = title;
+      if (project.url) {
+        const imageLink = createProjectLink();
+        imageLink.append(image);
+        article.append(imageLink);
+      } else {
+        article.append(image);
+      }
     }
 
     const details = document.createElement('div');
@@ -73,6 +81,12 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       year.textContent = String(project.year);
       details.append(year);
     }
+
+    const projectAction = project.url
+      ? createProjectLink()
+      : document.createElement('span');
+    projectAction.textContent = 'View project';
+    details.append(projectAction);
 
     article.append(details);
     containerElement.append(article);
