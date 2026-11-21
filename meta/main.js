@@ -321,12 +321,16 @@ function updateFileDisplay(commitsToShow) {
     .join(
       (enter) =>
         enter.append('div').call((div) => {
-          div.append('dt').append('code');
+          div.append('dt').call((dt) => {
+            dt.append('code');
+            dt.append('small');
+          });
           div.append('dd');
         }),
     );
 
   filesContainer.select('dt > code').text((file) => file.name);
+  filesContainer.select('dt > small').text((file) => `${file.lines.length} lines`);
   filesContainer
     .select('dd')
     .selectAll('div')
