@@ -193,6 +193,26 @@ circle {
   transform-box: fill-box;
   transform-origin: center;
   transition: 200ms;
+
+  @starting-style {
+    r: 0;
+  }
+}
+
+.time-filter label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75em;
+}
+
+.time-filter input {
+  flex: 1;
+}
+
+.time-filter time {
+  margin-left: auto;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 circle:hover {
