@@ -1,4 +1,5 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
 
 let xScale;
 let yScale;
@@ -39,7 +40,7 @@ function processCommits(data) {
     });
 
     return processedCommit;
-  });
+  }).sort((a, b) => d3.ascending(a.datetime, b.datetime));
 }
 
 function renderCommitInfo(data, commits) {
@@ -358,3 +359,45 @@ console.log(commits);
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
 onTimeSliderChange();
+
+d3.select('#scatter-story')
+  .selectAll('.step')
+  .data(commits)
+  .join('div')
+  .attr('class', 'step')
+  .html(
+    (commit, index) => `
+      On ${commit.datetime.toLocaleString('en', {
+        dateStyle: 'full',
+        timeStyle: 'short',
+      })},
+      I made <a href="${commit.url}" target="_blank">${
+        index > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'
+      }</a>.
+      I edited ${commit.totalLines} lines across ${
+        d3.rollups(
+          commit.lines,
+          (lines) => lines.length,
+          (line) => line.file,
+        ).length
+      } files.
+      Then I looked over all I had made, and I saw that it was very good.
+    `,
+  );
+
+function onStepEnter(response) {
+  const commit = response.element.__data__;
+  commitMaxTime = commit.datetime;
+  commitProgress = timeScale(commitMaxTime);
+
+  commitProgressInput.value = commitProgress;
+  onTimeSliderChange();
+}
+
+const scroller = scrollama();
+scroller
+  .setup({
+    container: '#scrolly-1',
+    step: '#scrolly-1 .step',
+  })
+  .onStepEnter(onStepEnter);

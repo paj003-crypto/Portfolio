@@ -219,6 +219,33 @@ circle:hover {
   transform: scale(1.5);
 }
 
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+}
+
+.step {
+  min-height: 60vh;
+  padding-block: 30vh;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
 #files {
   display: grid;
   grid-template-columns: 1fr 4fr;
