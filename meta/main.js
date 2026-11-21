@@ -254,6 +254,7 @@ const timeScale = d3
 
 let commitMaxTime = timeScale.invert(commitProgress);
 let filteredCommits = commits;
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 function updateScatterPlot(data, commitsToShow) {
   const width = 1000;
@@ -303,6 +304,37 @@ function updateScatterPlot(data, commitsToShow) {
     });
 }
 
+function updateFileDisplay(commitsToShow) {
+  let lines = commitsToShow.flatMap((commit) => commit.lines);
+  let files = d3
+    .groups(lines, (line) => line.file)
+    .map(([name, fileLines]) => {
+      return { name, lines: fileLines };
+    })
+    .sort((a, b) => b.lines.length - a.lines.length);
+
+  let filesContainer = d3
+    .select('#files')
+    .selectAll('div')
+    .data(files, (file) => file.name)
+    .join(
+      (enter) =>
+        enter.append('div').call((div) => {
+          div.append('dt').append('code');
+          div.append('dd');
+        }),
+    );
+
+  filesContainer.select('dt > code').text((file) => file.name);
+  filesContainer
+    .select('dd')
+    .selectAll('div')
+    .data((file) => file.lines)
+    .join('div')
+    .attr('class', 'loc')
+    .attr('style', (line) => `--color: ${colors(line.type)}`);
+}
+
 function onTimeSliderChange() {
   commitProgress = Number(document.getElementById('commit-progress').value);
   commitMaxTime = timeScale.invert(commitProgress);
@@ -316,6 +348,7 @@ function onTimeSliderChange() {
 
   filteredCommits = commits.filter((commit) => commit.datetime <= commitMaxTime);
   updateScatterPlot(data, filteredCommits);
+  updateFileDisplay(filteredCommits);
 }
 
 const commitProgressInput = document.getElementById('commit-progress');
